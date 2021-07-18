@@ -1,11 +1,13 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
+const bodyparser = require('body-parser');
 require('dotenv').config({path:"./.env"});
 
 const app = express();
 app.use(express.json());
-app.use(cors);
+app.use(express.urlencoded({extended:true}));
+//app.use(cors);
 
 var PORT = process.env.PORT || 8008;
 
@@ -21,4 +23,10 @@ mongoose.connect(process.env.MONGO_URL , {
     if(err) throw err;
     console.log("[Connection] MongoDB connection started")
 }
-)
+);
+
+app.get('/', (req, res) => {
+    return res.json({hello:"world"});
+})
+
+app.use('/url', require('./routes/urlRoutes'));
