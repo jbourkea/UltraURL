@@ -10,5 +10,15 @@ app.use(cors);
 var PORT = process.env.PORT || 8008;
 
 app.listen(PORT, () => {
-    console.log(`Server is listening on port [${PORT}]`);
+    console.log(`[Connection] Server is listening on port [${PORT}]`);
 });
+
+mongoose.connect(process.env.MONGO_URL , {
+    useNewUrlParser:true,
+    useUnifiedTopology:true,
+    useCreateIndex:true
+}, (err) => {
+    if(err) throw err;
+    console.log("[Connection] MongoDB connection started")
+}
+)
