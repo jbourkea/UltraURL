@@ -1,0 +1,6 @@
+h1 {
+    color: var(--dark);
+    font-family: var(--primary-font);
+    font-size: 3rem;
+
+}
