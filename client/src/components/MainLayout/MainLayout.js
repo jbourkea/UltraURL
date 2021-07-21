@@ -1,7 +1,5 @@
 import React from 'react';
 import './style.css';
-// TODO: Delete after
-import Header from '../Header/Header';
 
 
 export default function MainLayout(props) {
