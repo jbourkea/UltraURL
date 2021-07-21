@@ -7,7 +7,7 @@ require('dotenv').config({path:"./.env"});
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
-//app.use(cors);
+app.use(cors());
 
 var PORT = process.env.PORT || 8008;
 
